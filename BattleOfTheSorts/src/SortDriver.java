@@ -76,7 +76,7 @@ public class SortDriver {
 		//sort using quick sort
 		System.arraycopy(dataArr, 0, testArr, 0, dataArr.length);
 		start = System.nanoTime();
-		InsertionSort.insertionSort(testArr);
+		QuickSort.quickSort(testArr);
 		end = System.nanoTime();
 		time = end - start;
 		System.out.printf("%-32s %32s %32s %32s\n","Quick Sort:",time+" ns;", "First Key: " + testArr[0] + ";", "Last Key: " + testArr[testArr.length-1]);

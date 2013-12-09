@@ -9,7 +9,7 @@ public class QuickSort {
      * 
      * @param list
      */
-    public static <E extends Comparable<E>> void otherSort(E[] strArr) 
+    public static <E extends Comparable<E>> void quickSort(E[] strArr) 
     {
     	partition(strArr,0,strArr.length-1);
     }
