@@ -1,0 +1,127 @@
+
+ICS 311 Extra Credit Project: Battle of the Sorts
+Due by 23:55 (11:55 pm) Sunday December 8th
+
+Late submissions with penalty of 1% per hour accepted until 02:00 AM December 10th.
+
+Requirements stated on the Assignments Page are included in the requirements for this project.
+Overview
+
+This project is the analog of Project 1, but for sorting algorithms rather than Dynamic Set implementations.
+
+Because sorting algorithms are simpler than dynamic set algorithms, we don't require console interaction, and you can reuse some of your code from Project 1, this extra credit project will be worth 40 points.
+
+You will provide (write or use open source) implementations of four distinct sorting algorithms. You will then analyze their expected performance (this has been done in the lectures and textbook), and then test them empirically to see how your test data compares to expected performance. You will write a report on the results.
+
+You may either use open source implementations of the following sorting algorithms (see the Assignments Page Section "Including Open Source Software" for requirements), or implement them yourself:
+
+    Heap Sort
+    Insertion Sort
+    Merge Sort
+    Quick Sort
+
+You will then write your own code to read in a file of strings into an array and test each of the four sorting algorithms as specified below.
+
+You will use the same data as for Implementation Project 1: the automatically generated names. There will be ten data files, four unsorted and four sorted of size 100, 1000, 10,000, 100,000 and 1,000,000. (It is possible that you won't be able to read in the largest file, but try it.)
+
+Your accompanying report will provide the times in nanoseconds required to sort each of the input files. You will compare these results to the theoretical analyses for the algorithms.
+
+No interactive console is required.
+
+Details follow. Questions and requests for clarification are welcome and should be submitted early. (See end of page for change log.) In general, you are free to make your own implementation decisions and use the best practices you are capable of.
+Input
+
+Input files of sizes from 100 to 1,000,000 sorted and unsorted are available in this directory. Each file has one name on each line. There are no quotations or other delimiters other than newline. For example:
+
+Hugh Moreno 
+Traci Obrien 
+Doug Moore 
+Sammy West 
+Anne Reid 
+Deanna Zimmerman 
+Marcus Waters 
+Clyde Walton 
+Matthew Rios 
+Jacqueline Robertson
+...
+
+Your program will take the input file name as an argument at the command line (i.e., read into String args). For each sort, it will read the file into an array until end of file is reached. You do not need to test the input for any properties: just read each line from the file as if it is a string.
+
+Your program will read the given file into an array for each of the four sorts to be run. (Obviously, for the time comparisons to be meaningful each sort must start on the same data. The easiest way to restore the unsorted data is to read it in again, since you already have code to do that. I recommend against making a copy of the array, because then you will be less likely to be able to read in the largest file.)
+Runtime Considerations
+Variations in Runtime
+
+The first time a program is run, there may be some behind-the-scenes setup that we are not aware of. For example, Java may need to load classes, or ask for more memory. This will make your initial run slower than you expect.
+
+On the other hand, memory may fill up on later runs, resulting in garbage collection or an increase in Java heap size.
+
+Therefore I suggest that you do more than one pass through all of the sorts you will be doing on the data, and see whether the run times are consistent. You may report the average (indicate this in your table).
+Memory
+
+If you run out of memory, increase the upper bound on the heap size available to Java using the -Xmx argument (or set the corresponding preference in your IDE). Try 1024M to start. You can set this higher than your physical memory provide you have ample disk space for virtual memory and don't mind waiting for swapping ...
+
+Also, load the data directly into one sort algorithm at a time, run the tests, and de-reference the objects so they can be garbage collected before starting on the next one.
+
+If you are unable to run the test file of one million, turn in up to 100,000.
+Output
+
+After (re)reading in the data, your program will print out the size of the data file read in (number of lines, which may include duplicate keys).
+
+It will then commence to sort the data with each sort and print out the name of the sort algorithm and the time required. To ensure the data is sorted, it will also print out the first and last item after sorting. For example,
+
+--------------------------------------------------------------------------------
+Sort Test: 10,000 keys
+ Heap Sort:      ########## ns; First Key: Aaron Bowen; Last Key: Zachary Waters 
+ Insertion Sort: ########## ns; First Key: Aaron Bowen; Last Key: Zachary Waters 
+ Merge Sort:     ########## ns; First Key: Aaron Bowen; Last Key: Zachary Waters 
+ Quick Sort:     ########## ns; First Key: Aaron Bowen; Last Key: Zachary Waters 
+--------------------------------------------------------------------------------
+
+You will need to run the program for each data set: 100, 1000, 10,000, 100,0000, and, if possible, 1,000,000; each sorted and unsorted. Thus you will have 8 runs if you go up to 100,000, or 10 runs if you are able to include the 1,000,000.
+
+Your reports will be based on these tests, in comparison to the T, big-O, and O analyses for the algorithms.
+Documentation and Report
+Readme.txt
+
+The Readme file should be clear and enable the TA to compile and run your program from source on UH Unix. They should also credit the source of your code, if applicable.
+Operation and Reference Manuals
+
+For this assignment, the Operation and Reference manuals are not required.
+Testing Document
+
+The Testing Document will include a summary of your empirical test results and a discussion of how these results compare to the asymptotic analyses of the sorting algorithms.
+
+Report the empirical results in an appropriate table or graphic. I suggest that you make two tables, one for the unsorted input and the other for the sorted input, of form (this is just a guide, and need not be reproduced precisely):
+
+---------------------------------------------------------------
+(Un)Sorted Data:  100      1000     10000    100000   1000000  
+ Heap Sort:       #######  #######  #######  #######  ####### 
+ Insertion Sort:  #######  #######  #######  #######  ####### 
+ Merge Sort:      #######  #######  #######  #######  ####### 
+ Quick Sort:      #######  #######  #######  #######  ####### 
+---------------------------------------------------------------
+
+Discrepancies between theory and empirical results should be explained (e.g., in terms of constant factors for smaller data sets).
+
+The impact of sorted versus random data should be discussed as well.
+
+This document is worth 15 of the 40 points: be thorough (showing you have thought carefully about the results in relation to the theoretical analyses and your implementation), yet concise (don't put in a lot of blather to make it look bigger).
+Grading
+
+Grading is modified from Project 1.
+
+Program and Documentation: 25 points
+
+        5 per sort algorithm correctly included (30 total).
+        5 for adequate program output, and for program documentation, (including acknowledging OSS sources and your own comments) as discussed on the Assignments Page.
+
+Analysis: 15 points
+
+        15 for adequate analysis of the results in the Testing Document, including comparison to theoretical analyses.
+
+Changes
+
+Fri Nov 15: Released initial version.
+
+Dan Suthers
+Last modified: Fri Nov 15 04:30:42 HST 2013 
