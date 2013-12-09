@@ -40,7 +40,8 @@ public class HeapSort {
 			//tracks which child to swap with
 			int swap = nodeIndex;
 			
-			if(dataArr[swap].compareTo(dataArr[leftChild]) < 0){
+			if(dataArr[swap]
+					.compareTo(dataArr[leftChild]) < 0){
 				swap = leftChild;
 			}
 			if( (rightChild <= end)  && (dataArr[swap].compareTo(dataArr[rightChild]) < 0) ){
