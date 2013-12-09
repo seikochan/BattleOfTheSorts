@@ -51,14 +51,19 @@ public class SortDriver {
 		}
 
 		
-		System.out.println("-----------------------------------------------------------");
+		System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------");
 		System.out.println("Sort Test: " + args[0]);
 		
 		//sort using heap sort
-		System.out.println("Heap Sort:");
+		testArr = dataArr.clone();
+		start = System.nanoTime();
+		HeapSort.heapSort(testArr);
+		end = System.nanoTime();
+		time = end - start;
+		System.out.printf("%-32s %32s %32s %32s\n","Heap Sort:",time+" ns;", "First Key: " + testArr[0] + ";", "Last Key: " + testArr[testArr.length-1]);
 		
 		//sort using insertion sort
-		System.arraycopy(dataArr, 0, testArr, 0, dataArr.length);
+		testArr = dataArr.clone();
 		start = System.nanoTime();
 		InsertionSort.insertionSort(testArr);
 		end = System.nanoTime();
@@ -66,7 +71,7 @@ public class SortDriver {
 		System.out.printf("%-32s %32s %32s %32s\n","Insertion Sort:",time+" ns;", "First Key: " + testArr[0] + ";", "Last Key: " + testArr[testArr.length-1]);
 		
 		//sort using merge sort
-		System.arraycopy(dataArr, 0, testArr, 0, dataArr.length);
+		testArr = dataArr.clone();
 		start = System.nanoTime();
 		MergeSort.mergeSort(testArr);
 		end = System.nanoTime();
@@ -74,11 +79,14 @@ public class SortDriver {
 		System.out.printf("%-32s %32s %32s %32s\n","Merge Sort:",time+" ns;", "First Key: " + testArr[0] + ";", "Last Key: " + testArr[testArr.length-1]);
 		
 		//sort using quick sort
-		System.arraycopy(dataArr, 0, testArr, 0, dataArr.length);
+		testArr = dataArr.clone();
 		start = System.nanoTime();
 		QuickSort.quickSort(testArr);
 		end = System.nanoTime();
 		time = end - start;
 		System.out.printf("%-32s %32s %32s %32s\n","Quick Sort:",time+" ns;", "First Key: " + testArr[0] + ";", "Last Key: " + testArr[testArr.length-1]);
+		
+		System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------");
+
 	}
 }

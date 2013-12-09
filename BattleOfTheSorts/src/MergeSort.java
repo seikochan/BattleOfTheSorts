@@ -35,8 +35,7 @@ public class MergeSort {
     	{return;}
     	
     	int i=start;int j=mid; int k=start;
-    	E[] working = null;
-    	System.arraycopy(tempArr, 0, working, 0, tempArr.length);
+    	E[] working = tempArr.clone();
     	//runs through elements of the list and copys the next smallest item to the list
     	while( (i<mid)&&(j<length) )
     	{
