@@ -1,5 +1,6 @@
 
 public class InsertionSort {
+	
 	/**
 	 *  Sorts a given list using the insertion sort.
 	 *  
